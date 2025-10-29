@@ -30,6 +30,7 @@ class AuthStream extends StatefulWidget{
 
 class _AuthStreamState extends State<AuthStream> {
   final FirebaseAuth _mAuth = FirebaseAuth.instance;
+  bool register = false;
 
   @override
   Widget build(BuildContext context){
@@ -45,6 +46,8 @@ class _AuthStreamState extends State<AuthStream> {
         }
         if(snapshot.hasData){
           return HomePage();
+        }else if(register){
+          return LoginPage();
         }else{
           return LoginPage();
         }
